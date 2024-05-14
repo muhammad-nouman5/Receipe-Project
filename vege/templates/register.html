@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block start %}
+      <div class="container mt-3">
+        <form class="card shadow-lg col-6 p-3 mx-auto" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2>Register</h2>
+
+            {% if messages %}
+            {{ message.tags }}              
+            <div class="alert alert-primary" role="alert">
+                {% for message in messages %}
+                  {{ message }}
+                {% endfor %}
+              </div>
+            {% endif %}
+
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">First Name</label>
+                  <input type="text" name="first_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Last Name</label>
+                    <input type="text" name="last_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div> 
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Username</label>
+                    <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div> 
+                  <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <p>Alread have Account <a href="/login/">login</a></p>
+                <button type="submit" class="btn btn-primary">Register</button>
+          </form>  
+        </div>
+      </div>
+    </div>
+{% endblock %}
